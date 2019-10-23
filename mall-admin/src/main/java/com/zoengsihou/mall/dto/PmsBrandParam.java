@@ -1,14 +1,19 @@
-package com.zoengsihou.mall.model;
+package com.zoengsihou.mall.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
+
+import javax.validation.constraints.NotBlank;
+
+/**
+ * 品牌参数传递对象
+ * @author zoengsihou
+ */
 
 @ApiModel(value = "品牌")
-public class PmsBrand implements Serializable {
-    private Long id;
-
+public class PmsBrandParam {
     @ApiModelProperty(value = "品牌名称")
+    @NotBlank(message = "名称不能为空")
     private String name;
 
     @ApiModelProperty(value = "首字母")
@@ -23,13 +28,8 @@ public class PmsBrand implements Serializable {
     @ApiModelProperty(value = "是否进行显示")
     private Integer showStatus;
 
-    @ApiModelProperty(value = "产品数量")
-    private Integer productCount;
-
-    @ApiModelProperty(value = "产品评论数量")
-    private Integer productCommentCount;
-
     @ApiModelProperty(value = "品牌logo")
+    @NotBlank(message = "品牌logo不能为空")
     private String logo;
 
     @ApiModelProperty(value = "专区大图")
@@ -37,16 +37,6 @@ public class PmsBrand implements Serializable {
 
     @ApiModelProperty(value = "品牌故事")
     private String brandStory;
-
-    private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -88,22 +78,6 @@ public class PmsBrand implements Serializable {
         this.showStatus = showStatus;
     }
 
-    public Integer getProductCount() {
-        return productCount;
-    }
-
-    public void setProductCount(Integer productCount) {
-        this.productCount = productCount;
-    }
-
-    public Integer getProductCommentCount() {
-        return productCommentCount;
-    }
-
-    public void setProductCommentCount(Integer productCommentCount) {
-        this.productCommentCount = productCommentCount;
-    }
-
     public String getLogo() {
         return logo;
     }
@@ -126,26 +100,5 @@ public class PmsBrand implements Serializable {
 
     public void setBrandStory(String brandStory) {
         this.brandStory = brandStory;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", firstLetter=").append(firstLetter);
-        sb.append(", sort=").append(sort);
-        sb.append(", factoryStatus=").append(factoryStatus);
-        sb.append(", showStatus=").append(showStatus);
-        sb.append(", productCount=").append(productCount);
-        sb.append(", productCommentCount=").append(productCommentCount);
-        sb.append(", logo=").append(logo);
-        sb.append(", bigPic=").append(bigPic);
-        sb.append(", brandStory=").append(brandStory);
-        sb.append("]");
-        return sb.toString();
     }
 }

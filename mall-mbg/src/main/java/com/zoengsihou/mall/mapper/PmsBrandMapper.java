@@ -2,8 +2,9 @@ package com.zoengsihou.mall.mapper;
 
 import com.zoengsihou.mall.model.PmsBrand;
 import com.zoengsihou.mall.model.PmsBrandExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsBrandMapper {
     long countByExample(PmsBrandExample example);
